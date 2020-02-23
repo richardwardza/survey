@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+enum QuestionType {
+  TEXT DROPDOWN TOGGLE TEXTAREA EMAIL
+}
+
+model User {
+  id      String  @id @default(cuid())
+  name    String
+  email   String  @unique
+  contact String?
+}
+
+model Question {
+  id           String       @id @default(cuid())
+  position     Int          @unique
+  question     String
+  questionType QuestionType
+  active       Boolean
+  createdAt    DateTime     @default(now())
+  updateddAt   DateTime     @default(now())
+}
+
+model Answer {
+  id        String   @id @default(cuid())
+  question  Question
+  user      User
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

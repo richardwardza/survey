@@ -1,0 +1,25 @@
+scalar DateTime
+
+input AnswerInput {
+  id: String
+  question: String
+  uuid: String
+  answer: String
+}
+
+type Answer {
+  id: String!
+  question: Question!
+  uuid: String
+  answer: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Query {
+  getAnswers(uuid: String): [Answer]
+}
+
+type Mutation {
+  saveAnswer(answerInput: AnswerInput): Answer
+}

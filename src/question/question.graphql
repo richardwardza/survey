@@ -1,0 +1,35 @@
+scalar DateTime
+
+enum QuestionType {
+  TEXT
+  DROPDOWN
+  TOGGLE
+  TEXTAREA
+  EMAIL
+  DATE
+}
+
+input QuestionInput {
+  position: Int
+  question: String
+  questionType: QuestionType
+  active: Boolean
+}
+
+type Question {
+  id: String!
+  position: Int
+  question: String
+  questionType: QuestionType
+  active: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Query {
+  getQuestions: [Question]
+}
+
+type Mutation {
+  addQuestion(questionInput: QuestionInput): Question
+}

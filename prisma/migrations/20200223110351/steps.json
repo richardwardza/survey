@@ -1,0 +1,52 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Question",
+      "field": "position",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Question",
+          "field": "position"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Question",
+      "field": "question",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Question",
+      "field": "questionType",
+      "type": "QuestionType",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Question",
+      "field": "order"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Question",
+      "field": "label"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Question",
+      "field": "type"
+    }
+  ]
+}

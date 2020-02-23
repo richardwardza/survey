@@ -1,0 +1,11 @@
+# IF THERE'S A GIT CONFLICT IN THIS FILE, DON'T SOLVE IT MANUALLY!
+# INSTEAD EXECUTE `prisma2 migrate fix`
+# Prisma Migrate lockfile v1
+# Read more about conflict resolution here: TODO
+
+20200222174836-initial
+20200223110351
+20200223111308-adding-email-enum
+20200223111945-sorting-out-enums
+20200223112220-updateddddd
+20200223161058-removed-user
