@@ -19,10 +19,10 @@ export interface ApiContext {
   context?: Context | ContextFunction;
 }
 
-const prisma = new PrismaClient({ 
-  errorFormat: 'minimal', 
+const prisma = new PrismaClient({
+  errorFormat: 'minimal',
   enableDebug: true,
- });
+});
 
 const modules = new GraphQLModule({
   imports: [
@@ -46,7 +46,7 @@ const server = new ApolloServer({
       context,
     };
   },
-  playground: true,
+  playground: process.env.NODE_ENV === "dev" ? true : false,
   introspection: true,
   tracing: true,
 });
